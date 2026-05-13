@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europa Julio 2026 · Carola, Amelia & Josefina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDFAF4; --cream-dark: #F5EFE0;
+    --navy: #1A2B4A; --navy-light: #2C3E62;
+    --gold: #C9973A; --gold-light: #F0D99A;
+    --green: #2A6B4F; --green-light: #D6F0E4;
+    --orange: #C25E1A; --orange-light: #FDE8D8;
+    --red: #B83232; --red-light: #FDEAEA;
+    --blue: #2563EB; --blue-light: #EEF4FF;
+    --gray: #6B7280; --border: rgba(26,43,74,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'Outfit', sans-serif; color: var(--navy); font-size: 15px; line-height: 1.6; }
+
+  .hero { background: var(--navy); padding: 64px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 30% 50%, rgba(201,151,58,.18) 0%, transparent 60%), radial-gradient(ellipse at 70% 20%, rgba(42,107,79,.12) 0%, transparent 50%); }
+  .hero-eyebrow { font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; position:relative; }
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(38px,7vw,64px); font-weight:700; color:#fff; line-height:1.1; position:relative; }
+  .hero h1 em { font-style:italic; color:var(--gold-light); }
+  .hero-sub { margin-top:20px; font-size:15px; color:rgba(255,255,255,.65); font-weight:300; position:relative; }
+  .hero-sub strong { color:rgba(255,255,255,.9); font-weight:500; }
+  .hero-dates { display:inline-flex; align-items:center; gap:10px; margin-top:28px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:40px; padding:10px 24px; font-size:13px; color:rgba(255,255,255,.8); position:relative; flex-wrap:wrap; justify-content:center; }
+  .sep { opacity:.4; }
+
+  .stats { background:var(--navy-light); padding:16px 24px; display:flex; justify-content:center; gap:32px; flex-wrap:wrap; }
+  .stat { text-align:center; }
+  .stat-n { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700; color:var(--gold-light); line-height:1; }
+  .stat-l { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:2px; }
+
+  .wrap { max-width:860px; margin:0 auto; padding:36px 20px 0; }
+  .sec-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+  .alert { border-radius:10px; padding:14px 18px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start; font-size:14px; line-height:1.5; }
+  .alert-i { font-size:16px; flex-shrink:0; margin-top:2px; }
+  .alert.urgent { background:var(--red-light); border-left:3px solid var(--red); }
+  .alert.warn   { background:var(--orange-light); border-left:3px solid var(--orange); }
+  .alert.info   { background:var(--blue-light); border-left:3px solid var(--blue); }
+  .alert strong { display:block; font-weight:600; margin-bottom:2px; }
+
+  .timeline { max-width:860px; margin:0 auto; padding:32px 20px; }
+  .card { background:#fff; border-radius:14px; margin-bottom:20px; overflow:hidden; box-shadow:0 2px 16px rgba(26,43,74,.06); border:1px solid var(--border); animation:up .4s ease both; }
+  @keyframes up { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .acc { height:3px; }
+  .a-blue   { background:linear-gradient(90deg,#2C5282,#4299E1); }
+  .a-gold   { background:linear-gradient(90deg,#B7791F,#F6D860); }
+  .a-green  { background:linear-gradient(90deg,#276749,#68D391); }
+  .a-teal   { background:linear-gradient(90deg,#285E61,#4FD1C5); }
+  .a-purple { background:linear-gradient(90deg,#553C9A,#9F7AEA); }
+  .a-orange { background:linear-gradient(90deg,#9C4221,#F6AD55); }
+  .a-red    { background:linear-gradient(90deg,#9B2C2C,#FC8181); }
+
+  .ch { padding:18px 22px 16px; display:flex; align-items:center; gap:14px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+  .ci { font-size:22px; flex-shrink:0; }
+  .cht { flex:1; }
+  .cd { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); }
+  .cp { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--navy); line-height:1.2; margin-top:2px; }
+
+  .badge { flex-shrink:0; font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; letter-spacing:.5px; text-transform:uppercase; }
+  .b-ok   { background:var(--green-light); color:var(--green); }
+  .b-pend { background:var(--orange-light); color:var(--orange); }
+  .b-urg  { background:var(--red-light); color:var(--red); }
+  .b-info { background:var(--blue-light); color:var(--blue); }
+
+  .dr { display:grid; grid-template-columns:148px 1fr; padding:9px 22px; border-bottom:1px solid rgba(26,43,74,.04); font-size:14px; gap:12px; align-items:start; }
+  .dr:last-child { border-bottom:none; }
+  .dl { color:var(--gray); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.5px; padding-top:1px; }
+  .dv { color:var(--navy); }
+  .dv strong { font-weight:600; }
+  .conf { color:var(--green); font-weight:600; }
+  .pend { color:var(--orange); font-weight:600; }
+  .urg  { color:var(--red); font-weight:600; }
+  .note { font-size:13px; color:var(--gray); font-style:italic; margin-top:3px; display:block; }
+  .code { font-family:'Courier New',monospace; background:var(--cream-dark); padding:1px 6px; border-radius:4px; font-size:13px; }
+
+  .fr { display:flex; align-items:center; gap:10px; padding:10px 22px; background:var(--cream); margin-bottom:1px; font-size:14px; flex-wrap:wrap; }
+  .fn { font-weight:700; font-size:13px; min-width:62px; }
+  .froute { flex:1; display:flex; align-items:center; gap:8px; }
+  .ap { font-weight:700; font-size:15px; }
+  .ar { color:var(--gold); font-size:18px; }
+  .ft { font-size:13px; color:var(--gray); }
+  .fs { font-size:12px; background:var(--navy); color:white; padding:2px 8px; border-radius:10px; }
+
+  .opt-block { margin:8px 22px 12px; border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+  .opt-head { padding:8px 14px; font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; background:var(--cream-dark); color:var(--gray); border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+  .opt-tag { color:var(--orange); }
+  .opt-inner { background:#fff; }
+  .opt-note { padding:8px 14px 10px; font-size:13px; color:var(--gray); font-style:italic; }
+
+  .nb-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; padding:12px 22px 16px; }
+  .nb-card { border-radius:10px; padding:14px 16px; border:1px solid var(--border); background:var(--cream); }
+  .nb-card.feat { border-color:var(--gold); background:#FFFDF5; }
+  .nb-card h4 { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:700; color:var(--navy); margin-bottom:3px; }
+  .nb-arr { font-size:11px; color:var(--gold); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+  .nb-card p { font-size:13px; color:var(--gray); line-height:1.5; }
+
+  .sum-section { max-width:860px; margin:0 auto; padding:0 20px 40px; }
+  .sum-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .sum-table th { background:var(--navy); color:white; padding:10px 14px; text-align:left; font-weight:600; font-size:11px; letter-spacing:1px; text-transform:uppercase; }
+  .sum-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .sum-table tr:nth-child(even) td { background:rgba(26,43,74,.02); }
+  .ar-right { text-align:right; font-weight:600; }
+  .pend-amt { color:var(--orange); text-align:right; }
+
+  .ck-section { max-width:860px; margin:0 auto; padding:0 20px 60px; }
+  .ck-item { display:flex; gap:14px; padding:14px 18px; border-radius:10px; margin-bottom:8px; font-size:14px; line-height:1.5; }
+  .ck-item.c-urg   { background:var(--red-light); }
+  .ck-item.c-warn  { background:var(--orange-light); }
+  .ck-item.c-info  { background:var(--blue-light); }
+  .ck-item.c-green { background:var(--green-light); }
+  .ck-icon { font-size:18px; flex-shrink:0; }
+  .ck-text strong { display:block; font-weight:600; margin-bottom:3px; }
+
+  footer { background:var(--navy); color:rgba(255,255,255,.5); text-align:center; padding:24px; font-size:12px; }
+  footer strong { color:rgba(255,255,255,.8); }
+
+  @media(max-width:600px){
+    .dr{grid-template-columns:1fr;gap:2px}
+    .ch{flex-wrap:wrap}
+    .stats{gap:16px}
+    .nb-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="hero-eyebrow">Itinerario de viaje</p>
+  <h1>Europa <em>Julio</em><br>2026</h1>
+  <p class="hero-sub"><strong>Carola Gerhard &middot; Amelia Perez &middot; Josefina Perez</strong></p>
+  <div class="hero-dates">
+    <span>✈️ 8 Jul · Santiago</span><span class="sep">›</span>
+    <span>🗼 París</span><span class="sep">›</span>
+    <span>🇦🇹 Austria</span><span class="sep">›</span>
+    <span>🇭🇷 Croacia</span><span class="sep">›</span>
+    <span>🇳🇱 Ámsterdam</span><span class="sep">›</span>
+    <span>✈️ 28 Jul</span>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="stat-n">20</div><div class="stat-l">Noches</div></div>
+  <div class="stat"><div class="stat-n">5</div><div class="stat-l">Destinos</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">Pasajeras</div></div>
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">Vuelos</div></div>
+  <div class="stat"><div class="stat-n">13</div><div class="stat-l">Días en auto</div></div>
+</div>
+
+<div class="wrap">
+  <p class="sec-title">⚡ Acciones urgentes</p>
+  <div class="alert urgent"><span class="alert-i">🔴</span><div><strong>Alojamiento París — por reservar</strong>3 noches (9–12 julio) para 3 personas. Julio es temporada alta: disponibilidad y precio empeoran cada día.</div></div>
+  <div class="alert urgent"><span class="alert-i">🔴</span><div><strong>Vuelo de regreso AMS → SCL (28 julio) — por comprar</strong>Ver las dos opciones en la sección del vuelo más abajo. Confirmar cuál prefieren y comprar.</div></div>
+  <div class="alert warn"><span class="alert-i">⚠️</span><div><strong>Verificar cobertura del auto en Croacia</strong>Llamar a Dryyve Austria (+43 676 3157419) y confirmar que el seguro incluye conducción en Croacia antes del 14 julio.</div></div>
+  <div class="alert warn"><span class="alert-i">⚠️</span><div><strong>Ciudad de destino en Croacia — Carola debe confirmar</strong>El alojamiento está reservado pero falta saber la ciudad exacta para cuadrar la ruta de manejo (5–6h desde Folling).</div></div>
+
+  <div class="alert info"><span class="alert-i">💳</span><div><strong>Tarjeta de crédito para el auto (no débito)</strong>Necesitar tener disponibles €337,92 (saldo arriendo) + €490 (depósito bloqueado). El depósito solo se acepta en Visa o Mastercard crédito.</div></div>
+</div>
+
+<div class="timeline">
+  <p class="sec-title">Itinerario día a día</p>
+
+  <!-- VUELO IDA -->
+  <div class="card" style="animation-delay:.04s">
+    <div class="acc a-blue"></div>
+    <div class="ch"><span class="ci">✈️</span><div class="cht"><div class="cd">Miércoles 8 → Jueves 9 Julio</div><div class="cp">Santiago de Chile → París (CDG)</div></div><span class="badge b-ok">✔ Confirmado</span></div>
+    <div class="fr"><span class="fn">LA 706</span><div class="froute"><span class="ap">SCL</span><span class="ar">→</span><span class="ap">MAD</span></div><span class="ft">Mié 19:00 → Jue 13:55 &nbsp;(13h 55min)</span><span class="fs">27A · 27B · 27C</span></div>
+    <div class="fr"><span class="fn">LA 1669</span><div class="froute"><span class="ap">MAD</span><span class="ar">→</span><span class="ap">CDG</span></div><span class="ft">Jue 15:45 → 17:55 &nbsp;(2h 10min) · Operado por Iberia</span></div>
+    <div class="dr"><span class="dl">Asientos</span><span class="dv">Carola: <strong>27C</strong> &nbsp;·&nbsp; Amelia + Josefina: <strong>27A – 27B</strong></span></div>
+    <div class="dr"><span class="dl">Equipaje</span><span class="dv">Economy Standard · 1 maleta bodega 23 kg + mano 12 kg por pasajera</span></div>
+    <div class="dr"><span class="dl">Reservas</span><span class="dv"><span class="code">LYZCWY</span> (Carola) &nbsp;·&nbsp; <span class="code">DKIIZA</span> (Amelia + Josefina)</span></div>
+    <div class="dr"><span class="dl">Llegada París</span><span class="dv"><strong>Jueves 9 Julio a las 17:55 hs</strong> — Charles de Gaulle (CDG)</span></div>
+    <div class="dr"><span class="dl">Nota</span><span class="dv">Presentarse en SCL a las <strong>16:00 hrs del martes 7 julio</strong> (3h antes). LA 1669 MAD→CDG es operado por Iberia bajo reserva LATAM.</span></div>
+  </div>
+
+  <!-- PARIS -->
+  <div class="card" style="animation-delay:.08s">
+    <div class="acc a-gold"></div>
+    <div class="ch"><span class="ci">🗼</span><div class="cht"><div class="cd">Jueves 9 – Domingo 12 Julio · 3 noches</div><div class="cp">París, Francia</div></div><span class="badge b-urg">🔴 Alojamiento pendiente</span></div>
+    <div class="dr"><span class="dl">Alojamiento</span><span class="dv"><span class="urg">Por reservar — urgente.</span><span class="note">3 noches, 3 personas (2 adultas + 1 niña de 10 años).</span></span></div>
+    <div class="dr"><span class="dl">Check-in</span><span class="dv">Jueves 9 julio — llegan ~18:30 al centro. Confirmar check-in tardío al hacer la reserva.</span></div>
+    <div class="dr"><span class="dl">Check-out</span><span class="dv">Domingo 12 julio — vuelo a Viena sale a las <strong>09:55 desde CDG</strong>. Salir del hotel a las <strong>07:30 máximo</strong>.<span class="note">Buscar hotel con consigna de maletas por si el checkout es antes de la salida.</span></span></div>
+    <div class="dr" style="padding-bottom:4px"><span class="dl">Barrios sugeridos</span><span class="dv">Tres opciones bien ubicadas, lindas y con buen metro:</span></div>
+    <div class="nb-grid">
+      <div class="nb-card feat"><div class="nb-arr">3° / 4° Arrond. ★ Top pick</div><h4>Le Marais</h4><p>Muy cerca del Centre Pompidou. Histórico, seguro, lleno de cafés y plazas. Excelente para pasear con niñas. Metro líneas 1, 8, 11.</p></div>
+      <div class="nb-card feat"><div class="nb-arr">5° / 6° Arrond. ★ El que mencionaste</div><h4>Barrio Latino · Saint-Germain</h4><p>Bohemio y elegante, cerca de Notre Dame y Jardín de Luxemburgo. Muy parisino. Metro líneas 4, 10.</p></div>
+      <div class="nb-card"><div class="nb-arr">11° Arrondissement</div><h4>République · Oberkampf</h4><p>Más local y auténtico, buen precio. Nodo de 5 líneas de metro. Menos turístico.</p></div>
+    </div>
+  </div>
+
+  <!-- VUELO CDG → VIE -->
+  <div class="card" style="animation-delay:.12s">
+    <div class="acc a-teal"></div>
+    <div class="ch"><span class="ci">✈️</span><div class="cht"><div class="cd">Domingo 12 Julio</div><div class="cp">París (CDG) → Viena (VIE)</div></div><span class="badge b-ok">✔ Confirmado</span></div>
+    <div class="fr"><span class="fn">OS 362</span><div class="froute"><span class="ap">CDG</span><span class="ar">→</span><span class="ap">VIE</span></div><span class="ft">09:55 → 11:50 &nbsp;(1h 55min) · Austrian Airlines · Sin escalas</span><span class="fs">02A · 02C · 02D</span></div>
+    <div class="dr"><span class="dl">Cabina</span><span class="dv"><strong>Business Class</strong> (Ejecutiva, código Z) — Asientos 02A, 02C, 02D (primera fila)</span></div>
+    <div class="dr"><span class="dl">Equipaje</span><span class="dv">32 kg por pasajera en bodega (incluido en Business) + equipaje de mano</span></div>
+    <div class="dr"><span class="dl">Confirmación</span><span class="dv"><span class="code">B9QHY7</span> · Orbitz 73448090245475 · Pagado: USD 890,70</span></div>
+
+  </div>
+
+  <!-- AUTO -->
+  <div class="card" style="animation-delay:.16s">
+    <div class="acc a-purple"></div>
+    <div class="ch"><span class="ci">🚗</span><div class="cht"><div class="cd">Domingo 12 → Sábado 25 Julio · 13 días</div><div class="cp">Jeep Avenger Automatic — Viena</div></div><span class="badge b-ok">✔ Confirmado</span></div>
+    <div class="dr"><span class="dl">Proveedor</span><span class="dv">Localrent.com / Dryyve Austria — Voucher <span class="code">1796319</span></span></div>
+    <div class="dr"><span class="dl">Pickup</span><span class="dv"><strong>Dom 12 Julio, 12:30 · Vienna Airport (VIE)</strong></span></div>
+    <div class="dr"><span class="dl">Devolución</span><span class="dv"><strong>Sáb 25 Julio, 12:30 · Vienna Airport (VIE)</strong><span class="note">2h 25min antes del vuelo a Ámsterdam ✓</span></span></div>
+    <div class="dr"><span class="dl">Pago en pickup</span><span class="dv">Saldo: <strong>€ 337,92</strong> (efectivo o tarjeta) &nbsp;+&nbsp; Depósito: <strong>€ 490</strong> (solo crédito, no débito)</span></div>
+    <div class="dr"><span class="dl">Ya pagado</span><span class="dv conf">€ 84,47 ✔ &nbsp;<span style="color:var(--gray);font-weight:400;font-size:13px">· Total arriendo: € 422,39</span></span></div>
+    <div class="dr"><span class="dl">Contacto</span><span class="dv"><strong>+43 676 3157419</strong> (Viena) &nbsp;·&nbsp; +43 676 4199207 (Salzburgo)</span></div>
+    <div class="dr"><span class="dl">⚠ Pendiente</span><span class="dv"><span class="pend">Confirmar con Dryyve que el seguro cubre conducción en Croacia antes del 14 julio.</span></span></div>
+  </div>
+
+  <!-- FOLLING 1 -->
+  <div class="card" style="animation-delay:.20s">
+    <div class="acc a-green"></div>
+    <div class="ch"><span class="ci">🏡</span><div class="cht"><div class="cd">Domingo 12 – Lunes 14 Julio · 2 noches</div><div class="cp">Folling, Alta Austria</div></div><span class="badge b-ok">✔ Confirmado</span></div>
+    <div class="dr"><span class="dl">Alojamiento</span><span class="dv conf">Casa de amiga ✔</span></div>
+    <div class="dr"><span class="dl">Traslado</span><span class="dv">Desde VIE en auto → Folling (~2h por la A1 Oeste)</span></div>
+    <div class="dr"><span class="dl">Salida</span><span class="dv">Lunes 14 julio temprano — viaje hacia Croacia en auto</span></div>
+  </div>
+
+  <!-- CROACIA -->
+  <div class="card" style="animation-delay:.23s">
+    <div class="acc a-blue"></div>
+    <div class="ch"><span class="ci">🇭🇷</span><div class="cht"><div class="cd">Lunes 14 – Martes 21 Julio · 7 noches</div><div class="cp">Croacia — ciudad por confirmar</div></div><span class="badge b-pend">⚠ Parcial</span></div>
+    <div class="dr"><span class="dl">Alojamiento</span><span class="dv conf">Confirmado ✔ <span class="note pend">Ciudad exacta pendiente — Carola debe confirmar para cuadrar la ruta.</span></span></div>
+    <div class="dr"><span class="dl">Traslado ida</span><span class="dv">Desde Folling en auto · ~5–6h (vía Eslovenia o Zagreb según destino)</span></div>
+    <div class="dr"><span class="dl">Traslado vuelta</span><span class="dv">Martes 21 julio — regreso en auto a Folling (~5–6h)</span></div>
+    <div class="dr"><span class="dl">⚠ Pendiente</span><span class="dv"><span class="pend">Verificar cobertura del auto en Croacia: +43 676 3157419</span></span></div>
+  </div>
+
+  <!-- FOLLING 2 -->
+  <div class="card" style="animation-delay:.26s">
+    <div class="acc a-green"></div>
+    <div class="ch"><span class="ci">🏡</span><div class="cht"><div class="cd">Martes 21 – Sábado 25 Julio · 4 noches</div><div class="cp">Folling, Alta Austria — regreso</div></div><span class="badge b-ok">✔ Confirmado</span></div>
+    <div class="dr"><span class="dl">Alojamiento</span><span class="dv conf">Casa de amiga ✔</span></div>
+    <div class="dr"><span class="dl">Salida</span><span class="dv">Sábado 25 julio — salir de Folling a las <strong>10:00 hs</strong> para llegar a VIE y devolver auto a las 12:30</span></div>
+  </div>
+
+  <!-- VUELO VIE → AMS -->
+  <div class="card" style="animation-delay:.29s">
+    <div class="acc a-teal"></div>
+    <div class="ch"><span class="ci">✈️</span><div class="cht"><div class="cd">Sábado 25 Julio</div><div class="cp">Viena (VIE) → Ámsterdam (AMS)</div></div><span class="badge b-ok">✔ Confirmado</span></div>
+    <div class="fr"><span class="fn">OS 315</span><div class="froute"><span class="ap">VIE</span><span class="ar">→</span><span class="ap">AMS</span></div><span class="ft">14:55 → 16:50 &nbsp;(1h 55min) · Austrian Airlines · Sin escalas</span><span class="fs">16A · 16B · 16C</span></div>
+    <div class="dr"><span class="dl">Cabina</span><span class="dv">Economy · Asientos 16A, 16B, 16C</span></div>
+    <div class="dr"><span class="dl">Equipaje</span><span class="dv">23 kg por pasajera en bodega (incluido) + 8 kg mano<span class="note">⚠ Menos que el vuelo anterior (Business: 32 kg). Reorganizar maletas si es necesario.</span></span></div>
+    <div class="dr"><span class="dl">Confirmación</span><span class="dv"><span class="code">BAGNS5</span> · Orbitz 73448119758615 · Pagado: USD 748,76</span></div>
+    <div class="dr"><span class="dl">Timing</span><span class="dv">Devolver auto 12:30 → check-in ~13:00 → vuelo 14:55 · Margen 1h 55min ✓</span></div>
+  </div>
+
+  <!-- AMSTERDAM -->
+  <div class="card" style="animation-delay:.32s">
+    <div class="acc a-orange"></div>
+    <div class="ch"><span class="ci">🇳🇱</span><div class="cht"><div class="cd">Sábado 25 – Martes 28 Julio · 3 noches</div><div class="cp">Ámsterdam, Países Bajos</div></div><span class="badge b-ok">✔ Confirmado</span></div>
+    <div class="dr"><span class="dl">Alojamiento</span><span class="dv conf">Con amiga ✔</span></div>
+    <div class="dr"><span class="dl">Nota</span><span class="dv">Coordinar traslado al aeropuerto Schiphol el 28 julio (~30 min desde el centro de Ámsterdam) según la hora del vuelo que se elija.</span></div>
+  </div>
+
+  <!-- VUELO REGRESO -->
+  <div class="card" style="animation-delay:.35s">
+    <div class="acc a-red"></div>
+    <div class="ch"><span class="ci">✈️</span><div class="cht"><div class="cd">Martes 28 Julio</div><div class="cp">Ámsterdam → Santiago de Chile</div></div><span class="badge b-info">🔵 Por confirmar</span></div>
+
+    <div class="dr"><span class="dl">Estado</span><span class="dv"><span class="pend">Carola debe elegir entre Opción A o B y comprar para las 3 pasajeras.</span></span></div>
+
+    <div class="opt-block">
+      <div class="opt-head"><span>Opción A — Vía São Paulo (GRU) &nbsp;·&nbsp; La más probable</span><span class="opt-tag">Por comprar · LATAM.com</span></div>
+      <div class="opt-inner">
+        <div class="fr"><span class="fn">LA 8079</span><div class="froute"><span class="ap">AMS</span><span class="ar">→</span><span class="ap">GRU</span></div><span class="ft">13:10 → 20:10 &nbsp;(12h) · LATAM Brasil · Boeing 787-9</span></div>
+        <div class="fr"><span class="fn">LA 8152</span><div class="froute"><span class="ap">GRU</span><span class="ar">→</span><span class="ap">SCL</span></div><span class="ft">23:30 → 02:50 +1 &nbsp;(4h 20min) · LATAM Brasil · Airbus A321</span></div>
+        <div class="dr"><span class="dl">Escala GRU</span><span class="dv">3h 20min en São Paulo (Guarulhos)</span></div>
+        <div class="dr"><span class="dl">Llegada SCL</span><span class="dv"><strong>Miércoles 29 julio, 02:50 AM</strong> — Total vuelo: 19h 40min</span></div>
+        <div class="dr"><span class="dl">✅ Ventaja</span><span class="dv" style="color:var(--green)">Salida cómoda a las 13:10. Última mañana en Ámsterdam libre. Llegar a Schiphol ~10:30.</span></div>
+        <div class="dr"><span class="dl">⚠ Desventaja</span><span class="dv" style="color:var(--orange)">Llegan a SCL a las 02:50 AM del 29 julio (madrugada). Ruta menos directa vía Brasil.</span></div>
+        <div class="opt-note">Buscar en LATAM.com: AMS → SCL del 28 julio para 3 pasajeras.</div>
+      </div>
+    </div>
+
+    <div class="opt-block">
+      <div class="opt-head"><span>Opción B — Vía Madrid (MAD) &nbsp;·&nbsp; Alternativa</span><span class="opt-tag">Por evaluar · KLM.com o LATAM.com</span></div>
+      <div class="opt-inner">
+        <div class="fr"><span class="fn">KL 1501</span><div class="froute"><span class="ap">AMS</span><span class="ar">→</span><span class="ap">MAD</span></div><span class="ft">07:00 → 09:30 &nbsp;(2h 30min) · KLM · Airbus A320</span></div>
+        <div class="fr"><span class="fn">LA 707</span><div class="froute"><span class="ap">MAD</span><span class="ar">→</span><span class="ap">SCL</span></div><span class="ft">13:15 → 20:35 &nbsp;(13h 20min) · LATAM · Boeing 787-9</span></div>
+        <div class="dr"><span class="dl">Escala MAD</span><span class="dv">3h 45min en Madrid (Barajas)</span></div>
+        <div class="dr"><span class="dl">Llegada SCL</span><span class="dv"><strong>Martes 28 julio, 20:35</strong> — Total vuelo: 19h 35min</span></div>
+        <div class="dr"><span class="dl">✅ Ventaja</span><span class="dv" style="color:var(--green)">Llegan a SCL el mismo día a las 20:35 (hora razonable). Ruta más directa vía Madrid.</span></div>
+        <div class="dr"><span class="dl">⚠ Desventaja</span><span class="dv" style="color:var(--orange)">Sale a las 07:00 AM → llegar a Schiphol a las 04:30–05:00 AM. Madrugar el último día en Ámsterdam.</span></div>
+        <div class="opt-note">Este es el vuelo de la amiga. Buscar en KLM.com o LATAM.com para las 3 pasajeras.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RESUMEN PAGOS -->
+<div class="sum-section">
+  <p class="sec-title">💳 Resumen de reservas y pagos</p>
+  <table class="sum-table">
+    <thead><tr><th>Concepto</th><th>Estado</th><th style="text-align:right">Pagado</th><th style="text-align:right">Por pagar</th></tr></thead>
+    <tbody>
+      <tr><td>Vuelos ida SCL→CDG · Carola &nbsp;<span class="code">LYZCWY</span></td><td><span class="conf">✔ Confirmado</span></td><td class="ar-right">CLP 741.046</td><td class="ar-right">—</td></tr>
+      <tr><td>Vuelos ida SCL→CDG · Amelia + Josefina &nbsp;<span class="code">DKIIZA</span></td><td><span class="conf">✔ Confirmado</span></td><td class="ar-right">CLP 1.479.443</td><td class="ar-right">—</td></tr>
+      <tr><td>Vuelo París→Viena OS362 · 3 pasajeras &nbsp;<span class="code">B9QHY7</span></td><td><span class="conf">✔ Confirmado</span></td><td class="ar-right">USD 890,70</td><td class="ar-right">—</td></tr>
+      <tr><td>Vuelo Viena→Ámsterdam OS315 · 3 pasajeras &nbsp;<span class="code">BAGNS5</span></td><td><span class="conf">✔ Confirmado</span></td><td class="ar-right">USD 748,76</td><td class="ar-right">—</td></tr>
+      <tr><td>Auto Jeep Avenger VIE 12–25 julio &nbsp;<span class="code">1796319</span></td><td><span class="conf">✔ Confirmado</span></td><td class="ar-right">€ 84,47</td><td class="pend-amt">€ 337,92 + € 490 depósito</td></tr>
+      <tr><td>Alojamiento París · 9–12 julio · 3 noches</td><td><span class="urg">🔴 Pendiente</span></td><td class="ar-right">—</td><td class="pend-amt">Por contratar</td></tr>
+      <tr><td>Vuelo regreso AMS→SCL · 28 julio · 3 pasajeras</td><td><span style="color:var(--blue);font-weight:600">🔵 Por confirmar</span></td><td class="ar-right">—</td><td class="pend-amt">Por comprar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CHECKLIST -->
+<div class="ck-section">
+  <p class="sec-title">📋 Checklist — qué le falta hacer a Carola</p>
+  <div class="ck-item c-urg"><span class="ck-icon">🔴</span><div class="ck-text"><strong>Reservar alojamiento en París (9–12 julio) — URGENTE</strong>3 noches para 3 personas. Hoy en Booking.com o Airbnb. Barrios sugeridos: Le Marais, Barrio Latino o Saint-Germain. Confirmar check-in tardío (llegan ~18:30).</div></div>
+  <div class="ck-item c-urg"><span class="ck-icon">🔴</span><div class="ck-text"><strong>Elegir vuelo de regreso y comprar</strong>Opción A (vía GRU, sale 13:10, llega SCL 02:50 del 29) o Opción B (vía MAD, sale 07:00, llega SCL 20:35). Comprar para las 3 pasajeras.</div></div>
+  <div class="ck-item c-warn"><span class="ck-icon">⚠️</span><div class="ck-text"><strong>Confirmar ciudad de destino en Croacia</strong>Indicarla para completar el itinerario y calcular tiempos de manejo desde Folling.</div></div>
+  <div class="ck-item c-warn"><span class="ck-icon">⚠️</span><div class="ck-text"><strong>Verificar cobertura del auto en Croacia</strong>Llamar a Dryyve: +43 676 3157419. Preguntar explícitamente si el seguro incluye Croacia. Antes del 14 julio.</div></div>
+  <div class="ck-item c-warn"><span class="ck-icon">💳</span><div class="ck-text"><strong>Tarjeta de crédito lista para el pickup del auto (12 julio)</strong>€337,92 (saldo) + €490 (depósito). El depósito solo acepta Visa o Mastercard crédito, no débito.</div></div>
+
+  <div class="ck-item c-info"><span class="ck-icon">🧳</span><div class="ck-text"><strong>Revisar equipaje por tramo</strong>París→Viena (Business): 32 kg bodega. Viena→Ámsterdam (Economy): 23 kg bodega. Puede requerir redistribuir cosas entre maletas.</div></div>
+  <div class="ck-item c-green"><span class="ck-icon">✔</span><div class="ck-text"><strong>Lo que ya está listo</strong>Vuelos ida (SCL→CDG), vuelo París→Viena en Business Class, vuelo Viena→Ámsterdam, auto Jeep Avenger en Viena (13 días), alojamiento en Folling (x2) y en Ámsterdam.</div></div>
+</div>
+
+<footer>
+  Preparado por <strong>Maurizio Fronza</strong> · Actualizado el 13 mayo 2026 · Viaje de <strong>Carola Gerhard, Amelia Perez y Josefina Perez</strong>
+</footer>
+</body>
+</html>
