@@ -40,7 +40,6 @@
       border-bottom: 2px solid var(--accent);
     }
 
-    /* PASAJERAS */
     .passengers { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
     .passenger-card {
       flex: 1; min-width: 200px; background: white; border-radius: 12px;
@@ -51,7 +50,6 @@
     .passenger-card .name { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-top: 0.2rem; }
     .passenger-card .detail { font-size: 0.82rem; color: var(--muted); margin-top: 0.15rem; }
 
-    /* CARDS */
     .card {
       background: white; border-radius: 10px; border: 1px solid var(--border);
       padding: 1.2rem; margin-bottom: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
@@ -60,19 +58,14 @@
     .card h3 { font-size: 1rem; font-weight: 700; color: var(--primary); }
     .card .subtitle { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
 
-    /* TAGS */
     .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
-    .tag {
-      display: inline-block; padding: 0.15rem 0.6rem; border-radius: 20px;
-      font-size: 0.75rem; font-weight: 600;
-    }
+    .tag { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
     .tag-blue   { background: #e8f0fa; color: var(--primary); }
     .tag-green  { background: #eafaf1; color: var(--green); }
     .tag-orange { background: #fef3e2; color: #c87a10; }
     .tag-red    { background: #fdecea; color: var(--red); }
-    .tag-gray   { background: #f0f0f0;  color: #555; }
+    .tag-gray   { background: #f0f0f0; color: #555; }
 
-    /* VUELOS */
     .flight-route { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px; }
     .flight-times { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
     .reservation-box {
@@ -81,21 +74,15 @@
     }
     .reservation-box span { font-weight: 700; }
 
-    /* GRID */
-    .details-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 2rem; margin-top: 0.8rem;
-    }
+    .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 2rem; margin-top: 0.8rem; }
     .detail-item .label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); }
     .detail-item .value { font-size: 0.9rem; font-weight: 600; color: var(--text); }
 
-    /* SCORE BADGE */
     .score-badge {
       background: var(--green); color: white; border-radius: 8px;
-      padding: 0.25rem 0.6rem; font-size: 0.9rem; font-weight: 700;
-      white-space: nowrap;
+      padding: 0.25rem 0.6rem; font-size: 0.9rem; font-weight: 700; white-space: nowrap;
     }
 
-    /* TIMELINE */
     .timeline { position: relative; padding-left: 1.8rem; }
     .timeline::before {
       content: ''; position: absolute; left: 0.55rem; top: 0; bottom: 0;
@@ -115,19 +102,16 @@
     .tl-title { font-size: 0.98rem; font-weight: 700; color: var(--primary); margin-top: 0.1rem; }
     .tl-sub { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
 
-    /* PENDING */
     .pending-list { list-style: none; }
     .pending-list li {
       display: flex; align-items: flex-start; gap: 0.6rem;
       padding: 0.7rem 1rem; background: white; border-radius: 8px;
-      border: 1px solid var(--border); margin-bottom: 0.5rem;
-      font-size: 0.88rem;
+      border: 1px solid var(--border); margin-bottom: 0.5rem; font-size: 0.88rem;
     }
     .pending-list li .icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
     .pending-list li.urgent { border-left: 3px solid var(--red); }
     .pending-list li.normal { border-left: 3px solid var(--pending); }
 
-    /* FOOTER */
     footer {
       text-align: center; padding: 1.5rem; font-size: 0.78rem;
       color: var(--muted); border-top: 1px solid var(--border); background: white;
@@ -150,7 +134,6 @@
 
 <div class="container">
 
-  <!-- PASAJERAS -->
   <div class="section-title">Pasajeras</div>
   <div class="passengers">
     <div class="passenger-card">
@@ -170,10 +153,9 @@
     </div>
   </div>
 
-  <!-- VUELOS -->
   <div class="section-title">Vuelos confirmados</div>
 
-  <!-- SCL → MAD → CDG -->
+  <!-- IDA SCL → CDG -->
   <div class="card">
     <div class="card-header">
       <div>
@@ -183,7 +165,7 @@
       <span class="tag tag-green">✓ Confirmado</span>
     </div>
     <div class="tags">
-      <span class="tag tag-blue">LA706 · 27A / 27B / 27C</span>
+      <span class="tag tag-blue">LA706 · Asientos 27A / 27B / 27C</span>
       <span class="tag tag-blue">LA1669 MAD→CDG op. Iberia</span>
       <span class="tag tag-gray">Escala Madrid: 15:45–17:55</span>
     </div>
@@ -225,17 +207,21 @@
     <div class="reservation-box">Confirmación: <span>BAGNS5</span></div>
   </div>
 
-  <!-- AMS → SCL -->
+  <!-- REGRESO AMS → SCL -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="flight-route">AMS → SCL</div>
-        <div class="flight-times">28 jul · KL1501 07:00 + LA707 13:15</div>
+        <div class="flight-route">AMS → GRU → SCL</div>
+        <div class="flight-times">27 jul 13:10 → 28 jul 02:50 · Economy</div>
       </div>
-      <span class="tag tag-red">⚠ Pendiente compra</span>
+      <span class="tag tag-green">✓ Confirmado</span>
     </div>
     <div class="tags">
-      <span class="tag tag-gray">KLM + LATAM · Por confirmar</span>
+      <span class="tag tag-blue">LA8079 AMS→GRU · escala 3h 20min · LA8152 GRU→SCL</span>
+      <span class="tag tag-orange">CLP 4.207.720</span>
+    </div>
+    <div class="reservation-box">
+      Res. <span>MVROOY</span> · N° orden <span>LA0452850IWZP</span>
     </div>
   </div>
 
@@ -327,8 +313,8 @@
   <div class="card">
     <div class="card-header">
       <div>
-        <h3>🏡 Amsterdam · 25–28 julio</h3>
-        <div class="subtitle">Casa de amiga · 3 noches</div>
+        <h3>🏡 Amsterdam · 25–27 julio</h3>
+        <div class="subtitle">Casa de amiga · 2 noches</div>
       </div>
       <span class="tag tag-green">✓ Confirmado</span>
     </div>
@@ -420,17 +406,17 @@
 
     <div class="tl-item">
       <div class="tl-card">
-        <div class="tl-date">25–28 jul</div>
+        <div class="tl-date">25–27 jul</div>
         <div class="tl-title">🌷 Amsterdam</div>
-        <div class="tl-sub">Casa de amiga · 3 noches</div>
+        <div class="tl-sub">Casa de amiga · 2 noches</div>
       </div>
     </div>
 
     <div class="tl-item">
       <div class="tl-card">
-        <div class="tl-date">28 jul — Martes</div>
+        <div class="tl-date">27 jul — Lunes</div>
         <div class="tl-title">✈️ Regreso Amsterdam → Santiago</div>
-        <div class="tl-sub">KL1501 AMS 07:00 → conexión → LA707 → SCL · <em>Pendiente compra</em></div>
+        <div class="tl-sub">LA8079 AMS 13:10 → São Paulo (GRU) · escala 3h 20min · LA8152 → SCL 28 jul 02:50</div>
       </div>
     </div>
 
@@ -442,10 +428,6 @@
     <li class="urgent">
       <span class="icon">🔴</span>
       <div><strong>Alojamiento París</strong> — 9–12 julio · 3 personas · reserva pendiente</div>
-    </li>
-    <li class="urgent">
-      <span class="icon">🔴</span>
-      <div><strong>Vuelo regreso AMS→SCL</strong> — 28 julio · KL1501 07:00 + LA707 13:15 · compra pendiente</div>
     </li>
     <li class="normal">
       <span class="icon">🟡</span>
